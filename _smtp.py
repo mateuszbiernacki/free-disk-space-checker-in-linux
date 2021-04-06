@@ -12,7 +12,7 @@ class SendEmail(threading.Thread):
 
     def run(self):
         try:
-            file = open(f"Data/email.conf", "r")
+            file = open("email.conf", "r")
             configuration = json.loads(file.read())
         except json.decoder.JSONDecodeError:
             return 1
