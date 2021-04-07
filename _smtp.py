@@ -29,7 +29,7 @@ class SendEmail(threading.Thread):
             smtp.ehlo()
             smtp.login(login, password)
             smtp.sendmail(login, self.to,
-                          f'Subject: {self.subject}\n\n{self.message}')
+                          'Subject: %s\n\n%s' % (self.subject, self.message))
 
 
 def send_email(to, subject, message):

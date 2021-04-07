@@ -8,9 +8,7 @@ if sys.platform == 'linux':
     free_space_gigabytes = (result.f_bavail * result.f_bsize) / 1024 / 1024 / 1024
     print(100-free_space_percent)
     print(free_space_gigabytes)
-    smtp.send_email('mateusz.biernacki@banachoutsourcing.pl',
-                    'Available space',
-                    f'Available space: {free_space_gigabytes}GB (it\'s {free_space_percent} of entire disk).')
+    smtp.send_email('mateusz.biernacki@banachoutsourcing.pl', 'Available space', 'Available space: %sGB (its %s of entire disk).' % (free_space_gigabytes, free_space_percent))
 
 
 else:
